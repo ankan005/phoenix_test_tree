@@ -37,10 +37,12 @@
 #include <sys/_system_properties.h>
 
 #include "property_service.h"
-#include "vendor_init.h"
 
 using android::base::GetProperty;
 using android::init::property_set;
+
+namespace android {
+namespace init {
 
 std::vector<std::string> ro_props_default_source_order = {
     "",
@@ -102,4 +104,6 @@ void vendor_load_properties() {
         property_override("persist.vendor.qcom.bluetooth.enable.splita2dp", "false");
         property_override("vendor.audio.feature.a2dp_offload.enable", "false");
     }
+}
+}
 }
